@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package tutorial;
+
+option java_package = "com.boot.proto";
+option java_outer_classname = "FileProto";
+
+
+message PDFFileProto {
+  optional bytes data = 2;
+}
