@@ -10,6 +10,7 @@ import org.springframework.core.io.Resource;
 
 import org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 //import com.boot.proto.
@@ -30,8 +31,9 @@ public class HomeController {
 
 
     @RequestMapping("/pdf")
-    public byte[] getPdf() throws IOException {
+    public byte[] getPdf(HttpServletResponse response) throws IOException {
         Resource resource = loader.getResource("classpath:sample.pdf");
+        response.setContentType("application/octet-stream");
         return IOUtils.toByteArray(resource.getInputStream());
     }
 }
