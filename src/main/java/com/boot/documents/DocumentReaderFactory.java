@@ -11,7 +11,7 @@ public class DocumentReaderFactory {
             case DOC:
                 return new DocReader();
             case DOCX:
-                return new DocReader();
+                return new DocxReader();
             default:
                 throw new IllegalArgumentException("Unknown file format");
         }

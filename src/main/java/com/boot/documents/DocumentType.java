@@ -5,14 +5,28 @@ package com.boot.documents;
  */
 public enum DocumentType {
     DOCX(".docx"),
-    DOC(".doc");
+    DOC(".doc"),
+    XLSX(".xlsx"),
+    XLS(".xls");
 
     private String fileExtension;
 
     DocumentType(String fileExtension) {
+        this.fileExtension = fileExtension;
+    }
+
+    public DocumentType getTypeFromExtension(String fileExtension) {
         switch (fileExtension) {
-            case "":
-                new String();
+            case ".docx":
+                return DOCX;
+            case ".docs":
+                return DOC;
+            case ".xlsx":
+                return XLSX;
+            case ".xls":
+                return XLS;
+            default:
+                return null;
         }
     }
 
